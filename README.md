@@ -116,3 +116,22 @@ reqBody.password = shajs('sha256').update(reqBody.password).digest('hex')
   config.errorHandler = {
   }
 ```
+
+## pm2 执行 script 的问题
+
+
+[issue](https://github.com/Unitech/pm2/issues/2808)
+
+```bash
+npm run dev => pm2 start npm -- run dev
+
+npm start => pm2 start npm -- start
+```
+
+```bash
+# 命名进程
+pm2 start npm --name hmmm -- run dev
+
+# 监听代码变化
+pm2 start npm --watch --name hmmm -- run dev
+```
